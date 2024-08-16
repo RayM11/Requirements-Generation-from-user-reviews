@@ -10,19 +10,15 @@ class CommentFilterPondered(CommentFilter):
 
         self.glossary_tokens = glossary_tokens
 
-    def forward(self, input_ids, attention_mask = None, labels=None):
-
-        # Crear la máscara de atención si no se proporciona
-        if attention_mask is None:
-            attention_mask = (input_ids != 0).int()
+    def forward(self, input_ids, attention_mask, labels=None):
 
         print("attention Mask: ", attention_mask)
+        print("\n\nInputs id: ", input_ids[0])
 
-        # Ajustar la máscara de atención para los tokens del glosario
-        for i, row in enumerate(input_ids):
-            for j, token_id in enumerate(row):
-                if token_id in self.glossary_tokens:
-                    attention_mask[i, j] = 2
+        for i, token_id in enumerate(input_ids[0]):
+            if token_id in self.glossary_tokens:
+                # attention_mask[:, i, :] *= 2  # Duplicamos la atención para los tokens del glosario
+                attention_mask[:, i] *= 2  # Duplicamos la atención hacia los tokens del glosario
 
         if 2 in attention_mask:
             print("Hay 2")

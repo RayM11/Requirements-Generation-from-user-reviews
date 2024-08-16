@@ -7,22 +7,30 @@ def load_glossary(path="../glossary/isoiecieee5652.csv"):
     df = pd.read_csv(path)
 
     glosario = df['Term'].tolist()
+
     return glosario
 
 
 def get_tokenized_glossary(model, tokenizer, path="../glossary/isoiecieee5652.csv", use_embeddings=False):
 
     glossary = load_glossary(path)
+    glossary_tokens = []
 
     print("Procesando el glosario...")
 
-    glossary_tokens = tokenizer(glossary, padding=True, truncation=True, return_tensors="pt")
+    for term in glossary:
+        tokenized_term = tokenizer(term)
+        glossary_tokens.extend(tokenized_term['input_ids'][1:-1])
 
-    if use_embeddings:
-        with torch.no_grad():
-            glossary_tokens = model(**glossary_tokens).last_hidden_state.mean(dim=1)
+    print("\nglossary_tokens: ", glossary_tokens.__sizeof__())
+    glossary_tokens = list(set(glossary_tokens))
+    print("\nglossary_tokens: ", glossary_tokens.__sizeof__())
 
-    print("Glosario Procesado")
+    # if use_embeddings:
+    #    with torch.no_grad():
+    #        glossary_tokens = model(**glossary_tokens).last_hidden_state.mean(dim=1)
+
+    print("\nGlosario Procesado")
 
     return glossary_tokens
 
