@@ -15,10 +15,10 @@ class System:
 
     def __init__(self):
 
-        ptm_path = "C:/Users/rmaes/PycharmProjects/requirements_classifier/models/roBERTa - base"
+        ptm_path = "../models/roBERTa - base"
         self.tokenizer = AutoTokenizer.from_pretrained(ptm_path)
 
-        fine_tuned_path = "C:/Users/rmaes/PycharmProjects/requirements_classifier/models/fine-tuned/comment_relevance_detector (facebook).pth"
+        fine_tuned_path = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
         self.model = torch.load(fine_tuned_path)
 
     def get_tokenizer(self):

@@ -13,9 +13,9 @@ class CommentFilter(pl.LightningModule):
         super().__init__()
         self.config = config
         self.pretrained_model = AutoModel.from_pretrained(config['model'], return_dict=True)
-        self.classifier = torch.nn.Linear(self.pretrained_model.config.hidden_size, 1)
+        self.linear_classifier = torch.nn.Linear(self.pretrained_model.config.hidden_size, 1)
         self.sigmoid = torch.nn.Sigmoid()
-        torch.nn.init.xavier_uniform_(self.classifier.weight)
+        torch.nn.init.xavier_uniform_(self.linear_classifier.weight)
         self.criterion = nn.BCELoss()
         self.num_classes = 2
 
@@ -33,7 +33,7 @@ class CommentFilter(pl.LightningModule):
         output = self.pretrained_model(input_ids=input_ids, attention_mask=attention_mask)
 
         # final logits
-        output = self.classifier(output.last_hidden_state.mean(dim=1))
+        output = self.linear_classifier(output.last_hidden_state.mean(dim=1))
         logits = self.sigmoid(output)
 
         # calculate loss

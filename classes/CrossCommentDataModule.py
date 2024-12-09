@@ -5,7 +5,7 @@ from sklearn.model_selection import KFold
 
 
 class CrossCommentDataModule(pl.LightningDataModule):
-    def __init__(self, k_fold, n_folds, split_seed, full_dataset, tokenizer, batch_size: int = 16, max_token_len: int = 200):
+    def __init__(self, k_fold, n_folds, split_seed, full_dataset, tokenizer, batch_size, max_token_len):
         super().__init__()
         self.full_dataset = full_dataset
         self.tokenizer = tokenizer

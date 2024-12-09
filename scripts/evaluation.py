@@ -5,8 +5,8 @@ import pytorch_lightning as pl
 from classes.CommentFilter import CommentFilter
 from transformers import AutoTokenizer, AutoModel
 from classes.CrossCommentDataModule import CrossCommentDataModule
-from classes.CommentFilterPondered import CommentFilterPondered
-from utils import get_tokenized_glossary
+from classes.CommentFilterFV import CommentFilterFV
+from classes.CrossCommentDataModuleFV import CrossCommentDataModuleFV
 
 
 def metrics_average(metrics_list):
@@ -25,7 +25,7 @@ def metrics_average(metrics_list):
     return {metric: sum_m / len(metrics_list) for metric, sum_m in metrics_sum.items()}
 
 
-def cross_validation_Relevance(model_name, data_name, n_folds, config, pondered_attention: bool):
+def cross_validation_relevance(model_name, data_name, n_folds, config, mode="base"):
 
     model_path = "../models/" + model_name
     data_path = "../data/" + data_name + ".csv"
@@ -37,20 +37,26 @@ def cross_validation_Relevance(model_name, data_name, n_folds, config, pondered_
     dataframe = pd.read_csv(data_path)
 
     for k in range(n_folds):
-        # datamodule
-        data_module = CrossCommentDataModule(k, n_folds, split_seed, dataframe, tokenizer, batch_size=16,
-                                             max_token_len=config['max_token_len'])
+
+        data_module = None
+
+        # model init
+        if mode == "base":
+            data_module = CrossCommentDataModule(k, n_folds, split_seed, dataframe, tokenizer,
+                                                 batch_size=config['batch_size'], max_token_len=config['max_token_len'])
+            relevance_model = CommentFilter(config)
+
+        elif mode == "FV":
+            data_module = CrossCommentDataModuleFV(k, n_folds, split_seed, dataframe, tokenizer,
+                                                   batch_size=config['batch_size'], max_token_len=config['max_token_len'],
+                                                   feature_vector_type=config['FV_type'])
+            relevance_model = CommentFilterFV(config)
+        else:
+            raise ValueError(f"ERROR: Invalid relevance mode: {mode}")
+
         data_module.setup()
 
         config["train_size"] = len(data_module.train_dataloader())
-
-        # model init
-        if pondered_attention:
-            base_model = AutoModel.from_pretrained(model_path)
-            glossary = get_tokenized_glossary(base_model, tokenizer)
-            relevance_model = CommentFilterPondered(config,glossary)
-        else:
-            relevance_model = CommentFilter(config)
 
         # training
         trainer = pl.Trainer(max_epochs=config['n_epochs'], log_every_n_steps=5, enable_progress_bar=True)
@@ -71,10 +77,10 @@ def cross_validation_Relevance(model_name, data_name, n_folds, config, pondered_
 
 
 if __name__ == '__main__':
-    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    warnings.simplefilter(action="ignore", category=FutureWarning)
 
     dataset = "facebook_labeled"
-    model = "roberta - base"
+    model = "BERTweet - base"
     # fine_tuned = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
     n_folds = 5
 
@@ -85,11 +91,27 @@ if __name__ == '__main__':
         'warmup': 0.2,
         'train_size': None,
         'weight_decay': 0.001,
-        'max_token_len': 200,
-        'n_epochs': 2
+        'max_token_len': 130,
+        'n_epochs': 2,
+
+        'FV_type': 'RELEVANT_POSITION',    # RELEVANT_COUNT or RELEVANT_POSITION
+        'use_mlp': True,
+        'mlp_dimension': 100
     }
 
-    cross_validation_Relevance(model, dataset, n_folds, config, True)
+    # comment1 = "good time passer and its very fun!"
+
+    # relevance_model = CommentFilterFV(config)
+    # tokenizer = AutoTokenizer.from_pretrained("../models/" + model)
+
+    # tokenizer_re = tokenizer(comment1)
+    # print("Tokenizador: ", tokenizer_re)
+
+    # model_re = relevance_model(comment1)
+    # print("model: ", model_re)
+
+    cross_validation_relevance(model, dataset, n_folds, config, "FV")
+
 
     #for k in range(n_folds):
     #    # datamodule

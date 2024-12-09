@@ -5,7 +5,7 @@ from classes.CommentDataset import CommentDataset
 
 class CommentDataModule(pl.LightningDataModule):
 
-    def __init__(self, train_data, test_data, tokenizer, batch_size: int = 16, max_token_len: int = 200):
+    def __init__(self, train_data, test_data, tokenizer, batch_size, max_token_len):
         super().__init__()
         self.train_data = train_data
         self.test_data = test_data
@@ -29,4 +29,4 @@ class CommentDataModule(pl.LightningDataModule):
         return DataLoader(self.test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=2)
 
     def predict_dataloader(self):
-        return DataLoader(self.test_dataset, batch_size = self.batch_size, num_workers=2, shuffle=False)
+        return DataLoader(self.test_dataset, batch_size=self.batch_size, num_workers=2, shuffle=False)
