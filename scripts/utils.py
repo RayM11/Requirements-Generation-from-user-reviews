@@ -1,5 +1,6 @@
 import pandas as pd
 import torch
+from transformers import AutoTokenizer, AutoModel
 
 
 def load_glossary(path="../glossary/isoiecieee5652.csv"):
@@ -40,13 +41,32 @@ def build_position_feature_vector(size, comment, glossary, tokenizer):
 
     feature_vector = torch.zeros(size)
     tokenized_comment = tokenizer.encode(comment)
-    tokenized_glossary = get_tokenized_glossary(tokenizer, glossary)
+    # tokenized_glossary = get_tokenized_glossary(tokenizer, glossary)
 
-    for i, token in enumerate(tokenized_comment):
-        if token < 4 and token in tokenized_glossary:
-            feature_vector[i] = 1
+    for term in glossary["Term"]:
+
+        term_without_space = tokenizer.encode(term, add_special_tokens=False)
+        term_with_space = tokenizer.encode(" " + term, add_special_tokens=False)
+
+        apply_positional_match(feature_vector, tokenized_comment, term_without_space)
+        apply_positional_match(feature_vector, tokenized_comment, term_with_space)
 
     return feature_vector
+
+
+def apply_positional_match(feature_vector, tokenized_comment, tokenized_term):
+
+    for i in range(len(tokenized_comment) - len(tokenized_term) + 1):
+
+        # detokenized_fragment = tokenizer.decode(tokenized_comment[i:i + len(tokenized_term)])
+        # detokenized_fragment = detokenized_fragment.strip()
+        # detokenized_term = tokenizer.decode(tokenized_term)
+        # detokenized_term = detokenized_term.strip()
+
+        if tokenized_comment[i:i + len(tokenized_term)] == tokenized_term:
+            # print("Found: ", tokenized_term)
+            for j in range(len(tokenized_term)):
+                feature_vector[i + j] = 1
 
 
 def collate_function(batch):
@@ -70,7 +90,9 @@ def get_tokenized_glossary(tokenizer, glossary):
     # glossary["Term"] = glossary["Term"].apply(lambda text: tokenizer.encode(text))
 
     for term in glossary["Term"]:
-        token_list.append(tokenizer.encode(term, add_special_tokens=False))
+        new_token = tokenizer.encode(term, add_special_tokens=False)
+        # if len(new_token) == 1:
+        token_list.append(new_token)
 
     tokenized_glossary = pd.DataFrame()
     tokenized_glossary["Term"] = token_list
@@ -142,11 +164,29 @@ if __name__ == '__main__':
     glossary = load_glossary()
 
     comment = "I don´t find the access method, accident"
+    # comment2 = "accident"
+    # comment3 = "The access"
 
-    relevant_count = count_relevant_terms(comment, glossary)
+    tokenizer = AutoTokenizer.from_pretrained("../models/roBERTa - base")
+    # model = AutoModel.from_pretrained("../models/roBERTa - base")
 
-    feature_vector = build_feature_vector(200, relevant_count)
+    relevant_count = build_count_feature_vector(200, comment, glossary)
+    relevant_position = build_position_feature_vector(200, comment, glossary, tokenizer)
 
     print("Comment: ", comment)
-    print("Relevant_count: ", relevant_count)
-    print("Feature_vector: ", feature_vector)
+    print("Relevant_Count: ", relevant_count)
+
+    print("Comment: ", comment)
+    print("Relevant_Position: ", relevant_position)
+
+    # inputs = tokenizer(comment, return_attention_mask=False)["input_ids"]
+    # inputs2 = tokenizer(comment2, return_attention_mask=False)["input_ids"]
+    # inputs3 = tokenizer(comment3, return_attention_mask=False)["input_ids"]
+    # inputs4 = tokenizer("access", return_attention_mask=False, add_special_tokens=False)["input_ids"]
+    #
+    # print(inputs)
+    # print(tokenizer.decode(inputs[10]))
+    # print(inputs2)
+    # print(tokenizer.decode(inputs2[1:3]))
+    # print(inputs3)
+    # print(inputs4)

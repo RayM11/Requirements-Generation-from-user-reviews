@@ -70,7 +70,7 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
         print(f" {k+1}-Fold metrics: {metrics}")
 
         save_path = f"../models/fine-tuned/relevance_model {model_name}-{data_name}-K{k + 1}.pth"
-        torch.save(model, save_path)
+        torch.save(relevance_model, save_path)
 
     print("Results :", results)
     print("Avg results: ", metrics_average(results))
@@ -79,8 +79,9 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
 if __name__ == '__main__':
     warnings.simplefilter(action="ignore", category=FutureWarning)
 
-    dataset = "facebook_labeled"
-    model = "BERTweet - base"
+    dataset = "templerun2_labeled"
+    # model = "albert v2 - base"
+    model = "roBERTa - base"
     # fine_tuned = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
     n_folds = 5
 
@@ -91,13 +92,15 @@ if __name__ == '__main__':
         'warmup': 0.2,
         'train_size': None,
         'weight_decay': 0.001,
-        'max_token_len': 130,
+        'max_token_len': 200,
         'n_epochs': 2,
 
         'FV_type': 'RELEVANT_POSITION',    # RELEVANT_COUNT or RELEVANT_POSITION
         'use_mlp': True,
-        'mlp_dimension': 100
+        'mlp_dimension': 100,
+        "nlp_dimension_2": 23
     }
+
 
     # comment1 = "good time passer and its very fun!"
 

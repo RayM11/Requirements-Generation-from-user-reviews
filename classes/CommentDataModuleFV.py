@@ -15,16 +15,16 @@ class CommentDataModuleFV(CommentDataModule):
 
     def train_dataloader(self):
         return DataLoader(self.train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=2,
-                          collate_fn=collate_function)
+                          persistent_workers=True, collate_fn=collate_function)
 
     def val_dataloader(self):
         return DataLoader(self.test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=2,
-                          collate_fn=collate_function)
+                          persistent_workers=True, collate_fn=collate_function)
 
     def test_dataloader(self):
         return DataLoader(self.test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=2,
-                          collate_fn=collate_function)
+                          persistent_workers=True, collate_fn=collate_function)
 
     def predict_dataloader(self):
         return DataLoader(self.test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=2,
-                          collate_fn=collate_function)
+                          persistent_workers=True, collate_fn=collate_function)

@@ -24,13 +24,13 @@ class Interfaz(CTk):
                                    corner_radius=32, border_width=2,
                                    command=self.predict_action)
 
-        button_path = CTkButton(master=self, text="Categorizar un archivo CSV", corner_radius=32, border_width=2, command=self.predict_csv_action)
+        # button_path = CTkButton(master=self, text="Categorizar un archivo CSV", corner_radius=32, border_width=2, command=self.predict_csv_action)
 
         label.pack(anchor="n", pady=(20, 0), ipady=5)
         self.textbox_comment.pack(anchor="n", pady=(20, 0), ipady=5)
         button_predict.pack(anchor="n", pady=(20, 0), padx=1)
         self.result_label.pack(anchor="n", pady=(20, 0), padx=1)
-        button_path.pack(anchor="n", pady=(20, 0), padx=1)
+        # button_path.pack(anchor="n", pady=(20, 0), padx=1)
 
     def predict_action(self):
 

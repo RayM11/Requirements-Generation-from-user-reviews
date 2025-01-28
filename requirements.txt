@@ -8,3 +8,7 @@ tqdm~=4.66.1
 nltk~=3.8.1
 autocorrect~=2.6.1
 customtkinter~=5.2.2
+regex~=2023.12.25
+matplotlib~=3.8.3
+seaborn~=0.13.2
+scipy~=1.12.0

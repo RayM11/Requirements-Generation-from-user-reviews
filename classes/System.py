@@ -1,6 +1,8 @@
+import numpy as np
 from transformers import AutoTokenizer
 import torch
 
+from scripts.utils import build_position_feature_vector, load_glossary
 
 class System:
 
@@ -15,17 +17,23 @@ class System:
 
     def __init__(self):
 
-        ptm_path = "../models/roBERTa - base"
+        ptm_path = "models/roBERTa - base"
         self.tokenizer = AutoTokenizer.from_pretrained(ptm_path)
 
-        fine_tuned_path = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
+        fine_tuned_path = "models/fine-tuned/relevance_model roBERTa - base (Linear+RP) -facebook-K3.pth"
         self.model = torch.load(fine_tuned_path)
+
+        glossary_path = "glossary/isoiecieee5652.csv"
+        self.glossary = load_glossary(glossary_path)
 
     def get_tokenizer(self):
         return self.tokenizer
 
     def get_model(self):
         return self.model
+
+    def get_glossary(self):
+        return self.glossary
 
     def predict_relevance_comment(self, comment):
         encoding = self.tokenizer.encode_plus(comment,
@@ -36,8 +44,10 @@ class System:
                                               return_attention_mask=True,
                                               return_tensors='pt',
                                               )
+        feature_vector = build_position_feature_vector(200, comment, self.glossary, self.tokenizer)
+        feature_vector = feature_vector[np.newaxis, :]
 
-        _, prediction = self.model(encoding["input_ids"], encoding["attention_mask"])
+        _, prediction = self.model(encoding["input_ids"], encoding["attention_mask"], feature_vectors=feature_vector)
         prediction = prediction.flatten().item()
 
         return prediction
