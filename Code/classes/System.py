@@ -38,7 +38,7 @@ class System:
     def predict_relevance_comment(self, comment):
         encoding = self.tokenizer.encode_plus(comment,
                                               add_special_tokens=True,
-                                              max_length=512,
+                                              max_length=200,
                                               return_token_type_ids=False,
                                               padding="max_length",
                                               return_attention_mask=True,

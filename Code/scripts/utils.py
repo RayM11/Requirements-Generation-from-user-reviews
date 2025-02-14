@@ -1,6 +1,7 @@
 import pandas as pd
 import torch
 from transformers import AutoTokenizer, AutoModel
+import numpy as np
 
 
 def load_glossary(path="../glossary/isoiecieee5652.csv"):
@@ -163,15 +164,30 @@ if __name__ == '__main__':
 
     glossary = load_glossary()
 
-    comment = "I don´t find the access method, accident"
+    comment = "i wish i could give more stars!!!!!!!"
     # comment2 = "accident"
     # comment3 = "The access"
 
-    tokenizer = AutoTokenizer.from_pretrained("../models/roBERTa - base")
+    tokenizer = AutoTokenizer.from_pretrained("../models/BERTweet - base")
     # model = AutoModel.from_pretrained("../models/roBERTa - base")
+    class_model = torch.load("../models/fine-tuned/relevance_model BERTweet - base (Linear+RC) - swiftkey - K4.pth")
 
-    relevant_count = build_count_feature_vector(200, comment, glossary)
-    relevant_position = build_position_feature_vector(200, comment, glossary, tokenizer)
+    relevant_count = build_count_feature_vector(130, comment, glossary)
+    relevant_position = build_position_feature_vector(130, comment, glossary, tokenizer)
+
+    encoding = tokenizer.encode_plus(comment,
+                                     add_special_tokens=True,
+                                     max_length=130,
+                                     return_token_type_ids=False,
+                                     padding="max_length",
+                                     return_attention_mask=True,
+                                     return_tensors='pt'
+                                     )
+
+    feature_vector = relevant_count[np.newaxis, :]
+
+    _, prediction = class_model(encoding["input_ids"], encoding["attention_mask"], feature_vectors=feature_vector)
+    prediction = prediction.flatten().item()
 
     print("Comment: ", comment)
     print("Relevant_Count: ", relevant_count)

@@ -1,3 +1,4 @@
+import warnings
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
@@ -14,6 +15,7 @@ class CommentDataset (Dataset):
         return len(self.data)
 
     def __getitem__(self, index):
+        warnings.simplefilter(action="ignore", category=FutureWarning)
         item = self.data.iloc[index]
         comment = str(item.Review)
         label = torch.FloatTensor(self.data.iloc[index, 1:])
@@ -27,10 +29,10 @@ class CommentDataset (Dataset):
                                 return_attention_mask=True,
                                 return_tensors='pt'
         )
-        if encoding["input_ids"].flatten().len != self.max_token_len:
+        if len(encoding["input_ids"].flatten()) != self.max_token_len:
             print("Bad length, expected ", self.max_token_len, ", got ", encoding["input_ids"].flatten().len)
 
-        print("Comment: ", comment)
+        # print("Comment: ", comment)
 
         return {'input_ids': encoding["input_ids"].flatten(),
                 'attention_mask': encoding["attention_mask"].flatten(),
