@@ -1,5 +1,5 @@
 from visual.Interfaz import Interfaz
-from classes.System import System
+from Code.classes.System import System
 
 
 if __name__ == '__main__':

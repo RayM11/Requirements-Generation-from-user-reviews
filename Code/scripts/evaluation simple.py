@@ -4,11 +4,11 @@ import warnings
 import pytorch_lightning as pl
 from sklearn.model_selection import train_test_split
 
-from classes.CommentFilter import CommentFilter
+from Code.classes.CommentFilter import CommentFilter
 from transformers import AutoTokenizer
 
-from classes.CommentDataModule import CommentDataModule
-from classes.CrossCommentDataModule import CrossCommentDataModule
+from Code.classes.CommentDataModule import CommentDataModule
+from Code.classes.CrossCommentDataModule import CrossCommentDataModule
 
 
 def metrics_average(metrics_list):

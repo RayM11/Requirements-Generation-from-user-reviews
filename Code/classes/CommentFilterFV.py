@@ -1,4 +1,4 @@
-from classes.CommentFilter import CommentFilter
+from Code.classes.CommentFilter import CommentFilter
 from torch import nn
 import torch
 

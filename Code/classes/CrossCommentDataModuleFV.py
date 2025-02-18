@@ -1,5 +1,5 @@
-from classes.CommentDatasetFV import CommentDatasetFV
-from classes.CrossCommentDataModule import CrossCommentDataModule
+from Code.classes.CommentDatasetFV import CommentDatasetFV
+from Code.classes.CrossCommentDataModule import CrossCommentDataModule
 from sklearn.model_selection import KFold
 
 

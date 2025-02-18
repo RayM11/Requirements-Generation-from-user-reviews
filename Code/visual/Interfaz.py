@@ -1,5 +1,5 @@
 from customtkinter import *
-from classes.System import System
+from Code.classes.System import System
 
 
 class Interfaz(CTk):

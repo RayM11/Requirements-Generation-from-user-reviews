@@ -2,8 +2,10 @@ import warnings
 
 import pandas as pd
 import torch
-from classes.CommentDataset import CommentDataset
-from scripts.utils import load_glossary, build_count_feature_vector, build_position_feature_vector
+from Code.classes.CommentDataset import CommentDataset
+from Code.scripts.utils import load_glossary, build_count_feature_vector, build_position_feature_vector
+
+max_len_btweet = 500
 
 
 class CommentDatasetFV (CommentDataset):
@@ -17,6 +19,7 @@ class CommentDatasetFV (CommentDataset):
         warnings.simplefilter(action="ignore", category=FutureWarning)
         item = self.data.iloc[index]
         comment = str(item.Review)
+        comment = comment[:max_len_btweet] if len(comment) > max_len_btweet else comment
         label = torch.FloatTensor(self.data.iloc[index, 1:])
         encoding = self.tokenizer.encode_plus(
                                 comment,

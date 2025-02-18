@@ -1,6 +1,6 @@
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
-from classes.CommentDataset import CommentDataset
+from Code.classes.CommentDataset import CommentDataset
 
 
 class CommentDataModule(pl.LightningDataModule):

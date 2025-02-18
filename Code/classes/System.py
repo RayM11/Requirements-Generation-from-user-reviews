@@ -2,7 +2,7 @@ import numpy as np
 from transformers import AutoTokenizer
 import torch
 
-from scripts.utils import build_position_feature_vector, load_glossary
+from Code.scripts.utils import build_position_feature_vector, load_glossary
 
 class System:
 

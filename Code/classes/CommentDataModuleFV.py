@@ -1,7 +1,7 @@
 from torch.utils.data import DataLoader
-from classes.CommentDatasetFV import CommentDatasetFV
-from classes.CommentDataModule import CommentDataModule
-from scripts.utils import collate_function
+from Code.classes.CommentDatasetFV import CommentDatasetFV
+from Code.classes.CommentDataModule import CommentDataModule
+from Code.scripts.utils import collate_function
 
 
 class CommentDataModuleFV(CommentDataModule):
