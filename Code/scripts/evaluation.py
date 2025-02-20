@@ -3,7 +3,7 @@ import torch
 import warnings
 import pytorch_lightning as pl
 from Code.classes.CommentFilter import CommentFilter
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer
 from Code.classes.CrossCommentDataModule import CrossCommentDataModule
 from Code.classes.CommentFilterFV import CommentFilterFV
 from Code.classes.CrossCommentDataModuleFV import CrossCommentDataModuleFV
@@ -69,7 +69,7 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
         results.append(metrics)
         print(f" {k+1}-Fold metrics: {metrics}")
 
-        save_path = f"../models/fine-tuned/relevance_model {model_name}(L+RP)-{data_name}-K{k + 1}.pth"
+        save_path = f"../models/fine-tuned/relevance_model {model_name}(L+RC)-{data_name}-K{k + 1}.pth"
         torch.save(relevance_model, save_path)
 
     print("Results :", results)
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         'max_token_len': 130,
         'n_epochs': 2,
 
-        'FV_type': 'RELEVANT_POSITION',    # RELEVANT_COUNT or RELEVANT_POSITION
+        'FV_type': 'RELEVANT_COUNT',    # RELEVANT_COUNT or RELEVANT_POSITION
         'use_mlp': False,
         'mlp_dimension': 100,
         "nlp_dimension_2": 23

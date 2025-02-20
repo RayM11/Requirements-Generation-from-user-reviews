@@ -8,7 +8,6 @@ from Code.classes.CommentFilter import CommentFilter
 from transformers import AutoTokenizer
 
 from Code.classes.CommentDataModule import CommentDataModule
-from Code.classes.CrossCommentDataModule import CrossCommentDataModule
 
 
 def metrics_average(metrics_list):

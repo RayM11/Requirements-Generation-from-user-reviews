@@ -4,7 +4,6 @@ import warnings
 import pytorch_lightning as pl
 from Code.classes.CommentFilter import CommentFilter
 from Code.classes.CommentDataModule import CommentDataModule
-from Code.classes.CommentDataset import CommentDataset
 from transformers import AutoTokenizer
 from pytorch_lightning.callbacks import ModelCheckpoint
 
