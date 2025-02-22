@@ -5,6 +5,7 @@ from torch.utils.data import Dataset
 
 max_len_btweet = 500
 
+
 class CommentDataset (Dataset):
 
     def __init__(self, data: pd.DataFrame, tokenizer, max_token_len):
@@ -20,7 +21,7 @@ class CommentDataset (Dataset):
         item = self.data.iloc[index]
         comment = str(item.Review)
         comment = comment[:max_len_btweet] if len(comment) > max_len_btweet else comment
-        label = torch.LongTensor(self.data.iloc[index, 1:])
+        label = torch.FloatTensor(self.data.iloc[index, 1:])
         encoding = self.tokenizer.encode_plus(
                                 comment,
                                 add_special_tokens=True,

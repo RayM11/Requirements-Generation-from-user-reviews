@@ -79,7 +79,7 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
 if __name__ == '__main__':
     warnings.simplefilter(action="ignore", category=FutureWarning)
 
-    dataset = "tapfish_labeled"
+    dataset = "tapfish_labeled v2"
     # model = "albert v2 - base"
     model = "BERTweet - base"
     # fine_tuned = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
@@ -113,7 +113,7 @@ if __name__ == '__main__':
     # model_re = relevance_model(comment1)
     # print("model: ", model_re)
 
-    cross_validation_relevance(model, dataset, n_folds, config, "FV")
+    cross_validation_relevance(model, dataset, n_folds, config, "base")
 
 
     #for k in range(n_folds):

@@ -20,8 +20,8 @@ class CommentDatasetFV (CommentDataset):
         item = self.data.iloc[index]
         comment = str(item.Review)
         comment = comment[:max_len_btweet] if len(comment) > max_len_btweet else comment
-        print("Comment ", index, ": ", comment)
-        label = torch.LongTensor(self.data.iloc[index, 1:])
+        print("\nComment ", index, ": ", comment)
+        label = torch.FloatTensor(self.data.iloc[index, 1:])
         encoding = self.tokenizer.encode_plus(
                                 comment,
                                 add_special_tokens=True,
