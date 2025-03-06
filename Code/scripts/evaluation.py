@@ -69,7 +69,7 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
         results.append(metrics)
         print(f" {k+1}-Fold metrics: {metrics}")
 
-        save_path = f"../models/fine-tuned/relevance_model {model_name}(L+RC)-{data_name}-K{k + 1}.pth"
+        save_path = f"../models/fine-tuned/relevance_model {model_name}(L+RC)-{data_name}-K{k + 1}.pth"  #(L+RC)
         torch.save(relevance_model, save_path)
 
     print("Results :", results)
@@ -79,9 +79,9 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
 if __name__ == '__main__':
     warnings.simplefilter(action="ignore", category=FutureWarning)
 
-    dataset = "tapfish_labeled v2"
+    dataset = "templerun2_labeled"
     # model = "albert v2 - base"
-    model = "BERTweet - base"
+    model = "roBERTa - base"
     # fine_tuned = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
     n_folds = 5
 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
         'warmup': 0.2,
         'train_size': None,
         'weight_decay': 0.001,
-        'max_token_len': 130,
+        'max_token_len': 200,
         'n_epochs': 2,
 
         'FV_type': 'RELEVANT_COUNT',    # RELEVANT_COUNT or RELEVANT_POSITION
@@ -100,7 +100,6 @@ if __name__ == '__main__':
         'mlp_dimension': 100,
         "nlp_dimension_2": 23
     }
-
 
     # comment1 = "good time passer and its very fun!"
 
@@ -113,7 +112,7 @@ if __name__ == '__main__':
     # model_re = relevance_model(comment1)
     # print("model: ", model_re)
 
-    cross_validation_relevance(model, dataset, n_folds, config, "base")
+    cross_validation_relevance(model, dataset, n_folds, config, "FV")
 
 
     #for k in range(n_folds):

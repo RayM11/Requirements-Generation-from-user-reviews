@@ -1,0 +1,158 @@
+
+            # Application Context
+            This is an app named SwiftKey that offers an alternative keyboard
+
+            # Task
+            Analyze the following user comments about the application described above and generate a well-defined list of software requirements.
+            Identify both functional and non-functional requirements (quality, performance, security, etc.).
+            For each requirement, assign a unique ID, specify its type (functional/non-functional),
+            and write a clear and precise description.
+
+            # User Comments:
+            - Im not fond of the fact, i have to constantly switch to go keyboard for Chinese either,  over rated.
+
+- If this language/font were to be added, SwiftKey would win the award for best Android app.
+
+- Just wish there were more themes to choose from and that of your backspace from an auto completed word that it would defer to what you originally typed.
+
+- Only suggestions I have would be a tab key for use with Web browsers and such and a personal dictionary would be nice to help speed the keyboards learning process up
+
+- I love this app best $3 I've ever spent drastically increases texting speed if you have it set up right could use some more themes like a black background with neon green letters
+
+- It would also be nice to be able to edit the remembered words and add or remove words, especially in multiples.
+
+- My only wish is the ability to add words to dictionary & more keyboard options with symbols like hearts that come standard on most Samsung galaxy s3
+
+- I'd love to see the option to enable a dedicated number row though, for those of us with those huge phones.
+
+- Would give 5 stars if a personal dictionary is added as well as the option to learn from whatsapp.
+
+- Love this keyboard and just got the update to JB on my EVOLTE and was wondering if you guys were implementing Emoji support for the keyboard?
+
+- Please provide swipe support like the latest keyboard update provided by Google for nexus.
+
+- I wish there was a way to toggle between languages instead of having them integrated into one keyboard.
+
+- Can't go without this keyboard anymore, though I'd still love to be able to disable gestures
+
+- I would like some more customization options, such as disabling the keypress letter highlight, custom skins (even if just hex colors from a file).
+
+- Would love to have a option to hide all the extra long press keys minus the numbers.
+
+- Bigger space bar, more themes, faster responses, and more intuitive.
+
+- Developers could add a slide type of writing and that would be awesome.
+
+- I was hoping to have a good heart symbol with the key board because that's something a girl uses a lot for commenting on photos and stuff like that if added, and I would be much happier with the application and rate it a five stars but, there are not a lot of color choices for your keyboard......
+
+- Predictions and double space bar to accept predictions and insert period are not longer available in browsers and many other apps.
+
+- If you could customize the keyboard to a different colour for all keyboards, I will give you 5 stars.
+
+- At the bottom corner there's an option for the regular smileys while texting but can there be an option to switch those to emoji or even an option to change them to what you want?
+
+- I have had this keyboard since I first got the Evo, I just love it, I wish it allowed me to input emojis but it is still a 5star app!
+
+- But i don't like keyboard skin model, if you can make keyboard skin like original keyboard, itu Will great
+
+- I love this apps,  it's a good keyboard app but i strongly request for the Chinese input cause ii use it a lot.
+
+- The only complaint is have is that there isn't a customized dictionary.
+
+- Why is the smiley face button more important than the enter button? With a keyboard that's supposed to be fast and cater to the user it makes no sense as to why this shouldn't be an option.
+
+- BUT PLEASE HAVE A SEPARATE KEY FOR "!" AND "?"!!!
+
+- Could you add a new theme "RED NEON" just like the blue neon (which is great by the way)....
+
+- but now that i use voice input, there is no easy way of inserting a full stop.
+
+- add a feature so that while talking to the mobile, there is another button beside the mic icon to insert a fullstop and you willl get your 5 stars back!
+
+- It's been MONTHS since hundreds if not thousands of users faithfully and trustingly waiting for the additional of Chinese language support.
+
+- Would have been great to receive the incompatibility warning PRIOR to paying.
+
+- This is an outstanding app and I would give it a 5 rating if they can add: (1) Swipe functionality and (2) More keyboard themes.
+
+- Great app but you lose the ability to add standard Samsung characters, like the hearts for example.
+
+- It doesnt work with fb chat... which is the ideal situation to make use of fast typing and auto correct.
+
+- Why they decided to put numbers on the left side and symbols on the right is beyond me (rather than numbers along the top and symbols on the rest).
+
+- There are plenty more like me - see your "new features" topics on your support pages. An option to disable this would restore 5 stars.
+
+- Typing email addresses and other long but irregular words can be a pain.
+
+- That isn't to say that the dwiftkey keyboard is bad, if it weren't for the lag it would be great
+
+- What I like here is the intelligence and the prediction power, which, by the way, can be improved.
+
+- Now the prediction is based just on recent writing, if I go back to continue a bit older texts with special terminology I realize that all the power of prediction is gone, have to learn it again from zero..
+
+- It's been MONTHS since hundreds if not thousands of users faithfully and trustingly waiting for the additional of Chinese language support.
+
+- Faroese language is not registered, and I understand why because it is so small, but I wish I somehow could personalize the languages even more.so that it automatickly remebers faroese words
+
+- I would absolutely love it if you guys could make an update that would allow the user to be able to type in a SWYPE style format instead of having to punch letter after letter.
+
+- Could you add a new theme "RED NEON" just like the blue neon (which is great by the way)....
+
+- Got no use for smileys, instead I'd like to bind that to open the second page of special characters.
+
+- Well would be better if it were a bit more customizable where the user can define the words and shortcuts.
+
+- Would give 5 stars if a personal dictionary is added as well as the option to learn from whatsapp.
+
+- Have to close keyboard and reopen to get suggestions way too often.
+
+- Also doesnt have a feature to minimize the keyboard. I could not access a certain app one time because of this.
+
+- i like everything about this app with 1 (very significant) exception.no swipe feature.
+
+
+            # Output Format:
+            ## Functional Requirements
+            - FR001: [Description of the functional requirement]
+            - FR002: [Description of the functional requirement]
+            ...
+
+            ## Non-Functional Requirements
+            - NFR001: [Description of the non-functional requirement]
+            - NFR002: [Description of the non-functional requirement]
+            ...
+
+            Please ensure that each requirement is:
+            1. Clear and unambiguous
+            2. Verifiable
+            3. Feasible
+            4. Relevant to the problem
+            5. Traceable to the source comments
+             
+            You may use any AI language model for this task, but do not rely on examples of its usage.
+</think>
+
+## Functional Requirements
+
+- FR001: Ensure smooth gameplay during online conversations.
+- FR002: Implement optimized keystroke highlighting.
+- FR003: Design a gesture-independent keyboard layout.
+- FR004: Achieve a minimalistic design aesthetic.
+- FR005: Establish keyboard accessibility guidelines.
+- FR006: Develop a responsive keyboard interface using web frameworks.
+- FR007: Maximize keyboard usability across devices.
+- FR008: Implement a scrollable virtual keyboard.
+
+## Non-Functional Requirements
+
+- NFR001: Verify that the keyboard requires at least two presses per character.
+- NFR002: Confirm that the minimum physical size exceeds four millimeters.
+- NFR003: Check that the keyboard adheres to WPF constraints.
+- NFR004: Validate that the keyboard cannot run within a specified memory limit.
+- NFR005: Determine if the keyboard needs three separate tabs.
+- NFR006: Assess whether the keyboard must handle multiple simultaneous touch events.
+- NFR007: Verify that the keyboard allows entry of English capitalization.
+- NFR008: Confirm that the keyboard prevents repeated uppercase letters.
+- NFR009: Check that the keyboard correctly displays emojis via text input.
+- NFR010: Evaluate that the keyboard does not require multi-touch inputs for text-based tasks.
