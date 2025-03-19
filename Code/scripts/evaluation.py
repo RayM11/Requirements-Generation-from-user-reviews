@@ -69,7 +69,7 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
         results.append(metrics)
         print(f" {k+1}-Fold metrics: {metrics}")
 
-        save_path = f"../models/fine-tuned/relevance_model {model_name}(L+RC)-{data_name}-K{k + 1}.pth"  #(L+RC)
+        save_path = f"../models/fine-tuned/relevance_model {model_name}(MLP+RP)-{data_name}-K{k + 1}.pth"  #(L+RC)
         torch.save(relevance_model, save_path)
 
     print("Results :", results)
@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
     dataset = "templerun2_labeled"
     # model = "albert v2 - base"
-    model = "roBERTa - base"
+    model = "xlnet - base"
     # fine_tuned = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
     n_folds = 5
 
@@ -95,8 +95,8 @@ if __name__ == '__main__':
         'max_token_len': 200,
         'n_epochs': 2,
 
-        'FV_type': 'RELEVANT_COUNT',    # RELEVANT_COUNT or RELEVANT_POSITION
-        'use_mlp': False,
+        'FV_type': 'RELEVANT_POSITION',    # RELEVANT_COUNT or RELEVANT_POSITION
+        'use_mlp': True,
         'mlp_dimension': 100,
         "nlp_dimension_2": 23
     }
@@ -112,7 +112,7 @@ if __name__ == '__main__':
     # model_re = relevance_model(comment1)
     # print("model: ", model_re)
 
-    cross_validation_relevance(model, dataset, n_folds, config, "FV")
+    cross_validation_relevance(model, dataset, n_folds, config, "base")
 
 
     #for k in range(n_folds):

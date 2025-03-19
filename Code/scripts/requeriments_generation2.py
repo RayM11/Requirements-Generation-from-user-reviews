@@ -10,32 +10,36 @@ PROMPT_TEMPLATE = """
 # Application Context
 {app_description}
 
-# Task
-Analyze the following user comments about the application described above and generate a well-defined list of software requirements.
-Identify both functional and non-functional requirements (quality, performance, security, etc.).
-For each requirement, assign a unique ID, specify its type (functional/non-functional),
-and write a clear and precise description.
-
-# User Comments:
+# User Comments to Analyze
 {comments}
+
+# Task
+Analyze the comments and extract clear software requirements. Follow these guidelines:
+
+1. **Requirement Types**:
+   - **Functional**: Describe what the system should do.
+   - **Non-Functional**: Describe how the system should perform (e.g., performance, security, usability).
+
+2. **Requirement Format**:
+   - Use the structure: "The system shall [action] [condition/criteria]."
+   - Be specific and include measurable criteria where possible.
+
+3. **Examples**:
+   - Functional: "The system shall allow users to export reports in PDF format."
+   - Non-Functional: "The system shall load all dashboard data in under 2 seconds."
+   
+4. **Quality Criteria**:
+- Atomicity: 1 requirement per feature
+- Specificity: Include verifiable metrics/criteria
+- Traceability: Link each requirement to specific comments
+- Completeness: Cover functional and quality aspects
 
 # Output Format:
 ## Functional Requirements
-- FR001: [Description of the functional requirement]
-- FR002: [Description of the functional requirement]
-...
+- [Requirement description]
 
 ## Non-Functional Requirements
-- NFR001: [Description of the non-functional requirement]
-- NFR002: [Description of the non-functional requirement]
-...
-
-Please ensure that each requirement is:
-1. Clear and unambiguous
-2. Verifiable
-3. Feasible
-4. Relevant to the problem
-5. Traceable to the source comments
+- [Requirement description]
 """
 
 
@@ -54,8 +58,8 @@ class RequirementsGenerator:
             "text-generation",
             model=self.model,
             tokenizer=self.tokenizer,
-            max_length=2048,
-            temperature=0.7,
+            max_length=4096,
+            temperature=0.8,
             top_p=0.95,
             repetition_penalty=1.15
         )
@@ -74,7 +78,7 @@ class RequirementsGenerator:
 
     def generate_from_comments(self, comments, app_description):
         # Unir todos los comentarios en un solo texto
-        comments_text = "".join([f"- {comment}" for comment in comments])
+        comments_text = "".join([f"{i+1}- {comment.rstrip()}\n" for i, comment in enumerate(comments)])
 
         # Generar los requisitos
         result = self.chain.run(app_description=app_description, comments=comments_text)
@@ -106,13 +110,13 @@ class RequirementsGenerator:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generar requisitos de software a partir de comentarios de usuarios')
-    parser.add_argument('--input', type=str, default='../data/swiftkey_informative_cluster16.csv',
+    parser.add_argument('--input', type=str, default='../data/swiftkey_informative_cluster9 themes.csv',
                         help='Ruta al archivo CSV con comentarios filtrados')
     parser.add_argument('--output', type=str, default='../data/swiftKeyrequirements.txt',
                         help='Ruta para guardar los requisitos generados')
     parser.add_argument('--model', type=str, default='../models/Qwant 1.5B Destil',
                         help='Ruta al modelo de lenguaje local')
-    parser.add_argument('--app-description', type=str, default='This is an app named SwiftKey that offers an alternative keyboard',
+    parser.add_argument('--app-description', type=str, default='This is an app named SwiftKey that offers an alternative keyboard for your smartphone',
                         help='Descripción de la aplicación para contextualizar los comentarios')
 
     args = parser.parse_args()
@@ -122,3 +126,10 @@ if __name__ == "__main__":
 
     print("\nRequisitos generados:")
     print(requirements)
+
+
+# #Quality Criteria
+# - **Atomicity**: 1 requirement per feature
+# - **Specificity**: Include verifiable metrics/criteria
+# - **Traceability**: Link each requirement to specific comments
+# - **Completeness**: Cover functional and quality aspects

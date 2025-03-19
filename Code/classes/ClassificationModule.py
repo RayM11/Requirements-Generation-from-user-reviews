@@ -1,9 +1,9 @@
 import torch
 import pandas as pd
 from transformers import AutoTokenizer
-from Code.classes import DataControlModule
 from CommentFilter import CommentFilter
 from tqdm import tqdm
+from Code.classes import DataControlModule
 
 
 def load_model(model_path, model_name='roberta-base', device=None):

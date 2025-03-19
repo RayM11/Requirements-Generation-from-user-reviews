@@ -1,62 +1,222 @@
 {
-    "0": {
+    "1": {
         "palabras_clave": [
             "keyboard",
             "swiftkey",
             "key",
-            "like",
-            "great",
-            "love",
+            "typing",
+            "type",
             "doesnt",
-            "samsung",
-            "default",
-            "time"
+            "enter",
+            "slow",
+            "button",
+            "word"
         ],
-        "num_comentarios": 298,
+        "num_comentarios": 92,
         "ejemplos": [
             "And I want swift key to save the words I type.\r\n",
-            "Also another good one is being able to make the space bar bigger by removing the smiley key on the bottom right making the keyboard bigger.\r\n",
-            "Does not work with S-Pen on Galaxy Note 2\r\n"
+            "When your in messages and lock the screen, once you turn it back on the suggestions are gone and you have to close and re open SwiftKey.\r\n",
+            "Im not fond of the fact, i have to constantly switch to go keyboard for Chinese either,  over rated.\r\n"
+        ]
+    },
+    "10": {
+        "palabras_clave": [
+            "themes",
+            "wish",
+            "love",
+            "like",
+            "add",
+            "just",
+            "theme",
+            "app",
+            "needs",
+            "new"
+        ],
+        "num_comentarios": 64,
+        "ejemplos": [
+            "I think it could do with a bit more customization...\r\n",
+            "I like how you did pumpkin for Halloween can we get a Christmas theme.\r\n",
+            "I would love to more themes, the current themes are great but I love customising my phone.\r\n"
+        ]
+    },
+    "4": {
+        "palabras_clave": [
+            "option",
+            "app",
+            "like",
+            "support",
+            "stars",
+            "dont",
+            "wish",
+            "add",
+            "space",
+            "good"
+        ],
+        "num_comentarios": 97,
+        "ejemplos": [
+            "And a few more settings for example, after I insert specific types of punctuation it sometimes put a space after..It would be good to be able to turn that off.\r\n",
+            "Very annoying to switch with other input methods.\r\n",
+            "It WAS awesome until the layout was changed.\r\n"
         ]
     },
     "2": {
         "palabras_clave": [
-            "themes",
-            "wish",
-            "add",
+            "keyboard",
+            "key",
+            "great",
             "like",
+            "keys",
+            "wish",
             "just",
-            "theme",
-            "swype",
-            "love",
-            "thing",
-            "keyboard"
+            "option",
+            "button",
+            "layout"
         ],
-        "num_comentarios": 151,
+        "num_comentarios": 77,
         "ejemplos": [
-            "I think it could do with a bit more customization...\r\n",
-            "It WAS awesome until the layout was changed.\r\n",
-            "Bring smaller space bar back!\r\n"
+            "Also another good one is being able to make the space bar bigger by removing the smiley key on the bottom right making the keyboard bigger.\r\n",
+            "Great keyboard and prediction but needs SWIPE function for portrait mode and better customization\r\n",
+            "Only suggestions I have would be a tab key for use with Web browsers and such and a personal dictionary would be nice to help speed the keyboards learning process up\r\n"
         ]
     },
-    "1": {
+    "7": {
+        "palabras_clave": [
+            "chinese",
+            "language",
+            "support",
+            "dictionary",
+            "add",
+            "like",
+            "need",
+            "words",
+            "japanese",
+            "input"
+        ],
+        "num_comentarios": 83,
+        "ejemplos": [
+            "I really would like to see Chinese language integration to be developed.\r\n",
+            "You need to add something to allow us to edit the prediction word database. This way, we can manually erase unwanted crap, periods & commas!!!\r\n",
+            "Because of missing of Macedonian language!\r\n"
+        ]
+    },
+    "8": {
+        "palabras_clave": [
+            "auto",
+            "type",
+            "typing",
+            "update",
+            "words",
+            "phone",
+            "work",
+            "app",
+            "space",
+            "start"
+        ],
+        "num_comentarios": 111,
+        "ejemplos": [
+            "Does not work with S-Pen on Galaxy Note 2\r\n",
+            "Used to work perfect but after i had accidentally deleted it, can't get it to work again after reinstall.\r\n",
+            "Ever since the jellybean update,  you have to exit the messaging application and open it up again for word prediction to work..\r\n"
+        ]
+    },
+    "9": {
+        "palabras_clave": [
+            "keyboard",
+            "themes",
+            "like",
+            "add",
+            "key",
+            "theme",
+            "keyboards",
+            "wish",
+            "make",
+            "board"
+        ],
+        "num_comentarios": 28,
+        "ejemplos": [
+            "I love the keyboards and what not it looks so awesome but just need some more themes to choose from or more customization choices.\r\n",
+            "I would like it if there were emoticon add ons for this keyboard like there are some of the other ones though...\r\n",
+            "I would really like to see more customization like more keyboard clolors and maybe some emoj that's different from iPhone.\r\n"
+        ]
+    },
+    "3": {
         "palabras_clave": [
             "words",
             "language",
-            "app",
             "word",
-            "support",
+            "download",
+            "predictions",
             "doesnt",
-            "like",
+            "correct",
             "use",
-            "option",
-            "chinese"
+            "prediction",
+            "english"
         ],
-        "num_comentarios": 430,
+        "num_comentarios": 81,
         "ejemplos": [
-            "And a few more settings for example, after I insert specific types of punctuation it sometimes put a space after..It would be good to be able to turn that off.\r\n",
-            "I really would like to see Chinese language integration to be developed.\r\n",
-            "Very annoying to switch with other input methods.\r\n"
+            "Last time it was smileys/predictions without spaces messing up other languages than english.\r\n",
+            "Also, I should be able to delete typos that have been presumed predictions.\r\n",
+            "After having the language constantly failing to download, and now not downloading at all.\r\n"
+        ]
+    },
+    "0": {
+        "palabras_clave": [
+            "keyboard",
+            "default",
+            "samsung",
+            "time",
+            "swiftkey",
+            "phone",
+            "type",
+            "use",
+            "love",
+            "laggy"
+        ],
+        "num_comentarios": 78,
+        "ejemplos": [
+            "Everytime I turn my phone off or restart it it goes back to default keyboard and I have to keep activating this one...\r\n",
+            "Awesome keyboard just lags with Google takes forever to show up.\r\n",
+            "I have to close the keyboard and then reopen for this to work.\r\n"
+        ]
+    },
+    "5": {
+        "palabras_clave": [
+            "swype",
+            "wish",
+            "add",
+            "theme",
+            "options",
+            "just",
+            "thing",
+            "awesome",
+            "emoji",
+            "stars"
+        ],
+        "num_comentarios": 59,
+        "ejemplos": [
+            "Wish I could customize the layout, then I would give 5 stars.\r\n",
+            "Just wish there were more themes to choose from and that of your backspace from an auto completed word that it would defer to what you originally typed.\r\n",
+            "Give me a red version of the \"holo\" theme and you'll get 5 stars.\r\n"
+        ]
+    },
+    "6": {
+        "palabras_clave": [
+            "words",
+            "app",
+            "doesnt",
+            "predictions",
+            "dont",
+            "stars",
+            "annoying",
+            "use",
+            "space",
+            "issue"
+        ],
+        "num_comentarios": 109,
+        "ejemplos": [
+            "I find it terribly annoying that now the prediction bar, and corrections don't work 50% of the time.\r\n",
+            "Only problem i have is the exclamation mark.\r\n",
+            "Always puts a period or a comma, never an exclamation mark.\r\n"
         ]
     }
 }

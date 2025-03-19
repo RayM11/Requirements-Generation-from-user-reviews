@@ -38,7 +38,7 @@ def load_comments(csv_path):
         pandas.DataFrame: DataFrame with loaded comments
     """
     # Load CSV without header and with a single column
-    df = pd.read_csv(csv_path, header=None, names=['comment'])
+    df = pd.read_csv(csv_path, header=None, names=['Review'])
     return df
 
 
@@ -54,3 +54,4 @@ def save_results(df, output_path):
     """
     df.to_csv(output_path, index=False)
     return df
+

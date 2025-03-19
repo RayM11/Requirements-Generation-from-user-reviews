@@ -10,14 +10,14 @@ import os
 import json
 from sklearn.metrics import silhouette_score
 import matplotlib.pyplot as plt
-from sklearn.cluster import DBSCAN
+from sklearn.cluster import DBSCAN, HDBSCAN
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import matplotlib.colors as mcolors
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 import torch.nn.functional as F
-
+from sentence_transformers import SentenceTransformer
 
 
 # 1. Cargar los comentarios desde el CSV
@@ -30,12 +30,20 @@ def cargar_comentarios(ruta_csv):
     return df
 
 
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output[0]
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+
+
 # 2. Generar embeddings utilizando un modelo pre-entrenado
-def generar_embeddings(df, nombre_modelo="../models/BERTweet - base", batch_size=16):
+def generar_embeddings(df, modelo="../models/BERTweet - base", batch_size=16):
     """Genera embeddings para los comentarios utilizando un modelo pre-entrenado."""
     # Cargar modelo y tokenizador
-    tokenizer = AutoTokenizer.from_pretrained(nombre_modelo)
-    model = AutoModel.from_pretrained(nombre_modelo)
+    tokenizer = AutoTokenizer.from_pretrained(modelo)
+    model = AutoModel.from_pretrained(modelo, trust_remote_code=True)
+
+    # comments = df["Review"].tolist()
 
     # Mover modelo a GPU si está disponible
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -49,19 +57,25 @@ def generar_embeddings(df, nombre_modelo="../models/BERTweet - base", batch_size
 
         # Tokenizar y obtener atención
         inputs = tokenizer(batch_texts, padding=True, truncation=True,
-                           max_length=512, return_tensors="pt")
+                           max_length=200, return_tensors="pt")
         inputs = {k: v.to(device) for k, v in inputs.items()}
 
         # Obtener embeddings
+        model.eval()
         with torch.no_grad():
             outputs = model(**inputs)
 
+        embeddings = mean_pooling(outputs, inputs['attention_mask'])
+        embeddings = F.normalize(embeddings, p=2, dim=1)
+
         # Usar la representación [CLS] como embedding del texto completo
-        embeddings = outputs.last_hidden_state[:, 0, :].cpu().numpy()
+        # embeddings = outputs.last_hidden_state[:, 0, :].cpu().numpy()
         all_embeddings.append(embeddings)
 
     # Concatenar todos los embeddings
     embeddings_array = np.vstack(all_embeddings)
+
+    # embeddings_array = model.encode(comments, prompt_name="passage")
 
     # Crear un DataFrame con los embeddings
     df_embeddings = pd.DataFrame({
@@ -70,6 +84,33 @@ def generar_embeddings(df, nombre_modelo="../models/BERTweet - base", batch_size
     })
 
     return df_embeddings, embeddings_array
+
+
+def generar_embeddings2(df, modelo="../models/BERTweet - base"):
+    tokenizer = AutoTokenizer.from_pretrained(modelo)
+    model = AutoModel.from_pretrained(modelo, trust_remote_code=True)
+
+    comments = df["Review"].tolist()
+
+    # Tokenize sentences
+    encoded_input = tokenizer(comments, padding=True, truncation=True, return_tensors='pt', max_length=200)
+
+    # Compute token embeddings
+    with torch.no_grad():
+        model_output = model(**encoded_input)
+
+    # Perform pooling
+    sentence_embeddings = mean_pooling(model_output, encoded_input['attention_mask'])
+
+    # Normalize embeddings
+    sentence_embeddings = F.normalize(sentence_embeddings, p=2, dim=1)
+
+    df_embeddings = pd.DataFrame({
+        'id': range(len(df)),
+        'embedding': [emb.tolist() for emb in sentence_embeddings]
+    })
+
+    return df_embeddings, sentence_embeddings
 
 
 def generar_embeddings_nomic(df, model_path="../models/nomic-embed-text", batch_size=16):
@@ -280,7 +321,7 @@ def agrupar_dbscan(embeddings_array, eps=0.5, min_samples=5):
     Ventaja: No requiere especificar el número de clusters.
     """
     # Aplicar DBSCAN
-    clustering = DBSCAN(eps=eps, min_samples=min_samples, n_jobs=-1)
+    clustering = HDBSCAN(min_samples=min_samples, n_jobs=-1)
     labels = clustering.fit_predict(embeddings_array)
 
     # Recalcular etiquetas para que empiecen desde 0 (DBSCAN usa -1 para ruido)
@@ -448,8 +489,8 @@ def visualizar_clusters_2d(embeddings, clusters, nombre_archivo):
 
 # Función principal que ejecuta todo el proceso
 def procesar_comentarios(ruta_csv_entrada, ruta_csv_embeddings, ruta_csv_final,
-                         modelo_embedding="nomic",
-                         ruta_modelo_nomic="../models/nomic-embed-text",
+                         modelo_embedding="../models/BERTweet - base",
+                         # ruta_modelo_nomic="../models/nomic-embed-text",
                          n_clusters=None, method="fuzzy", ruta_analisis=None,
                          auto_k=True, k_min=2, k_max=15,
                          reducir_dim=True, n_componentes=50, metodo_reduccion='umap'
@@ -459,27 +500,29 @@ def procesar_comentarios(ruta_csv_entrada, ruta_csv_embeddings, ruta_csv_final,
     df = cargar_comentarios(ruta_csv_entrada)
 
     print("2. Generando embeddings...")
-    if modelo_embedding == "nomic":
-        # Usar el modelo Nomic para embeddings
-        df_embeddings, embeddings_array = generar_embeddings_nomic(
-            df, model_path=ruta_modelo_nomic
-        )
-    else:
-        # Usar el enfoque original con transformers
-        df_embeddings, embeddings_array = generar_embeddings(
-            df,
-            nombre_modelo=modelo_embedding
-        )
+    # if modelo_embedding == "nomic":
+    #     # Usar el modelo Nomic para embeddings
+    #     df_embeddings, embeddings_array = generar_embeddings_nomic(
+    #         df, model_path=ruta_modelo_nomic
+    #     )
+    # else:
+    #     # Usar el enfoque original con transformers
+    #     df_embeddings, embeddings_array = generar_embeddings(
+    #         df,
+    #         nombre_modelo=modelo_embedding
+    #     )
+
+    df_embeddings, embeddings_array = generar_embeddings2(df, modelo=modelo_embedding)
 
     # Reducir dimensionalidad si se solicita
     if reducir_dim:
-        embeddings_originales = embeddings_array.copy()
+        dimension_original = embeddings_array.shape[1]
         embeddings_array = reducir_dimensiones(
             embeddings_array,
             n_componentes=n_componentes,
             metodo=metodo_reduccion
         )
-        print(f"Dimensionalidad reducida de {embeddings_originales.shape[1]} a {embeddings_array.shape[1]}")
+        print(f"Dimensionalidad reducida de {dimension_original} a {embeddings_array.shape[1]}")
 
     # Guardar embeddings en CSV
     df_embeddings_to_save = df_embeddings.copy()
@@ -560,13 +603,13 @@ if __name__ == "__main__":
         ruta_csv_entrada=ruta_csv_entrada,
         ruta_csv_embeddings=ruta_csv_embeddings,
         ruta_csv_final=ruta_csv_final,
-        modelo_embedding="nomic",  # Usar modelo Nomic
-        ruta_modelo_nomic=ruta_modelo_nomic,  # Ruta o nombre del modelo
+        modelo_embedding=ruta_modelo_nomic,  # Usar modelo Nomic
+        # ruta_modelo_nomic=ruta_modelo_nomic,  # Ruta o nombre del modelo
         n_clusters=None,
         method="fuzzy",
         ruta_analisis=ruta_analisis,
         auto_k=True,
-        k_min=2,
+        k_min=10,
         k_max=50,
         reducir_dim=True,
         n_componentes=2,
