@@ -1,4 +1,6 @@
 
 /Code/models
 /Code/scripts/lightning_logs
+/Code/data/reports
 /.idea
+/.env
