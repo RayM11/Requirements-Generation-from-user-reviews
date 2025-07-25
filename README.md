@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Research](https://img.shields.io/badge/Research-Thesis%20Project-orange.svg)]()
 
-[Workflow Diagram](https://github.com/RayM11/Requirements-Generation-from-user-reviews/blob/main/Docs/detailed-workflow-diagram.png)
+![Workflow Diagram](https://github.com/RayM11/Requirements-Generation-from-user-reviews/blob/main/Docs/detailed-workflow-diagram.png)
 *Figure: High-level workflow of the solution, from user reviews to unified requirements.*
 
 ## 📜 Project Overview
