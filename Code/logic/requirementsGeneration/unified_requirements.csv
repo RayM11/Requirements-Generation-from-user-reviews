@@ -1,0 +1,202 @@
+,requirement_id,type,description,based_on_comments
+0,FR001,FUNCTIONAL,The system shall handle emoji input in chat without crashing.,7
+1,FR002,FUNCTIONAL,The system shall allow users to view photos without requiring app restarts.,"8, 75, 81"
+2,FR003,FUNCTIONAL,The system shall correctly update the timeline without requiring manual app restarts.,"63, 67, 101"
+3,FR004,FUNCTIONAL,The system shall prevent unintended phone shutdowns triggered by app interactions.,"5, 65, 70"
+4,FR005,FUNCTIONAL,The system shall ensure background tasks do not degrade overall phone performance.,"18, 82"
+5,FR006,FUNCTIONAL,The system shall retain typed text during app freezes or crashes.,"33, 87"
+6,FR007,FUNCTIONAL,The system shall properly handle GPS functionality without persistent locks.,25
+7,FR008,FUNCTIONAL,The system shall restore the notification bar and keyboard after app freezes.,78
+8,FR009,FUNCTIONAL,The system shall allow users to delete and edit comments.,"112, 116, 123, 136, 140"
+9,FR010,FUNCTIONAL,The system shall provide an option to save media to an SD card.,"116, 477"
+10,FR011,FUNCTIONAL,The system shall include an exit button to fully close the app.,"127, 147"
+11,FR012,FUNCTIONAL,The system shall allow users to change their cover photo and profile picture.,"116, 123"
+12,FR013,FUNCTIONAL,"The system shall provide a ""most recent"" sorting option for posts as the default when selected.","116, 205"
+13,FR014,FUNCTIONAL,The system shall enable users to close pictures after opening them.,160
+14,FR015,FUNCTIONAL,The system shall ensure notifications clear from the home screen after being addressed.,"159, 997"
+15,FR016,FUNCTIONAL,The system shall allow users to like and comment on posts regardless of scrolling speed.,158
+16,FR017,FUNCTIONAL,The system shall load all comments on posts without requiring additional user interaction.,"180, 202, 206, 220, 234, 239, 250, 253"
+17,FR018,FUNCTIONAL,The system shall continuously load new stories as the user scrolls down the news feed.,"182, 190, 200, 204, 207, 212, 244, 251"
+18,FR019,FUNCTIONAL,The system shall allow users to view and interact with uploaded pictures in their news feed and profiles.,"187, 192, 195, 199, 203, 215, 216, 224, 253, 254"
+19,FR020,FUNCTIONAL,"The system shall provide notifications for user interactions (e.g., likes, comments) reliably.","191, 207, 231, 585, 620, 629, 649"
+20,FR021,FUNCTIONAL,The system shall enable users to post status updates and pictures without delays or errors.,"201, 219, 230, 258"
+21,FR022,FUNCTIONAL,The system shall optimize the display of images and posts for tablet devices.,"252, 667, 1710, 1713, 1715"
+22,FR023,FUNCTIONAL,The system shall correctly detect and validate network connectivity before displaying error messages.,259-361
+23,FR024,FUNCTIONAL,The system shall provide clear and actionable error messages for network-related issues.,259-361
+24,FR025,FUNCTIONAL,"The system shall maintain functionality for core features (e.g., posting, liking, viewing feeds) even under unstable network conditions.","280, 303, 321, 329, 332, 333, 354, 358"
+25,FR026,FUNCTIONAL,The system shall support seamless switching between Wi-Fi and mobile data without requiring app restart.,"272, 299, 305, 318, 330"
+26,FR027,FUNCTIONAL,"The system shall provide offline mode capabilities for basic actions (e.g., drafting posts, viewing cached content).","280, 321, 329, 354, 993, 1192, 1260, 1264"
+27,FR028,FUNCTIONAL,"The system shall allow users to view all photos in their news feed, including those marked as ""viewable by friends.""",362-451
+28,FR029,FUNCTIONAL,"The system shall correctly display the selected photo when a user clicks on it in the news feed, without showing a different photo from the same album.","373, 374, 392, 397, 399, 421, 448, 768, 770, 788, 828"
+29,FR030,FUNCTIONAL,The system shall allow users to exclude specific folders from appearing in the photo selection page.,367
+30,FR031,FUNCTIONAL,"The system shall support full display of photo captions, including those with more than 2-3 words, without truncation.","417, 445"
+31,FR032,FUNCTIONAL,The system shall allow users to choose specific albums when viewing or uploading photos.,"445, 1066, 1070, 1086, 1090, 1140, 1153"
+32,FR033,FUNCTIONAL,The system shall provide a single press of the back button to exit from an enlarged photo view.,"418, 419, 432, 439, 449, 1062, 1103"
+33,FR034,FUNCTIONAL,The system shall provide an option to adjust font size within the app.,466
+34,FR035,FUNCTIONAL,The system shall allow users to opt out of contact syncing permanently.,"497, 537, 541, 544, 547"
+35,FR036,FUNCTIONAL,"The system shall provide a toggle to disable ""Find Friends"" prompts permanently.","467, 479, 488, 519, 535, 536, 539, 541, 544, 547"
+36,FR037,FUNCTIONAL,"The system shall restore the ""Friends"" button and its functionality.",469
+37,FR038,FUNCTIONAL,The system shall allow users to filter friends/pages alphabetically by category.,527
+38,FR039,FUNCTIONAL,The system shall provide an option to watch YouTube videos through the YouTube app when linked from Facebook.,518
+39,FR040,FUNCTIONAL,The system shall ensure contact sync functionality is available and visible in settings.,"455, 461, 468, 515"
+40,FR041,FUNCTIONAL,"The system shall prevent unauthorized access via the ""Sign Up for Facebook"" button.",483
+41,FR042,FUNCTIONAL,The system shall ensure games and third-party apps can link with Facebook.,"524, 525"
+42,FR043,FUNCTIONAL,The system shall ensure successful login attempts with a 99.9% success rate.,"550, 552, 553, 558, 561, 568, 570, 571, 578"
+43,FR044,FUNCTIONAL,"The system shall synchronize user actions (e.g., posts, likes) across mobile and web platforms in real-time.","551, 567, 573"
+44,FR045,FUNCTIONAL,"The system shall provide access to all core features (e.g., Pages, Events) without errors.","554, 560, 576"
+45,FR046,FUNCTIONAL,The system shall open links within the app instead of redirecting to a browser.,"555, 840"
+46,FR047,FUNCTIONAL,The system shall support offline comment drafting with automatic posting upon reconnection.,572
+47,FR048,FUNCTIONAL,"The system shall prevent involuntary logout during active sessions (e.g., while typing).",577
+48,FR049,FUNCTIONAL,"The system shall persist ""Like"" actions on statuses, photos, and comments without automatic unliking upon refresh or navigation.","579, 589, 590, 592, 604, 622, 628, 640, 641, 642, 660"
+49,FR050,FUNCTIONAL,The system shall enable users to navigate to a person's profile directly from their photo or comment.,"581, 593, 623"
+50,FR051,FUNCTIONAL,"The system shall ensure the ""Like"" button for photos and statuses is distinct from the ""View Likes/Comments"" button to prevent accidental taps.","606, 617, 1530"
+51,FR052,FUNCTIONAL,The system shall allow users to upload photos without mandatory location information.,591
+52,FR053,FUNCTIONAL,The system shall provide a visible and accessible comment field even when the keyboard is open.,"597, 598"
+53,FR054,FUNCTIONAL,The system shall enable users to reply to comments directly from the comment thread.,"611, 621, 665"
+54,FR055,FUNCTIONAL,The system shall allow users to upload photos directly to a specific person's wall.,625
+55,FR056,FUNCTIONAL,"The system shall display accurate like counts (e.g., beyond 98) for photos and statuses.","633, 648"
+56,FR057,FUNCTIONAL,The system shall include an integrated chat feature.,671
+57,FR058,FUNCTIONAL,The system shall provide a functional widget for reduced-size operation.,"672, 708"
+58,FR059,FUNCTIONAL,The system shall allow users to disable background syncing to conserve battery.,"702, 739"
+59,FR060,FUNCTIONAL,The system shall support HD tablet-optimized layouts.,"667, 1616, 1618"
+60,FR061,FUNCTIONAL,The system shall minimize bloatware and focus on core functionality.,755
+61,FR062,FUNCTIONAL,The system shall correctly load and display images when selected by the user.,758-846
+62,FR063,FUNCTIONAL,The system shall allow users to download images from the app.,"772, 809, 821, 830, 832, 846, 1067, 1069, 1070, 1087, 1123, 1130, 1132, 1152"
+63,FR064,FUNCTIONAL,The system shall prevent forced redirections to Instagram when interacting with images.,840
+64,FR065,FUNCTIONAL,The system shall handle image loading independently of network type (3G/H/Wi-Fi) without errors.,"799, 802, 816"
+65,FR066,FUNCTIONAL,The system shall allow users to manually disable automatic updates.,"864, 873, 884, 907"
+66,FR067,FUNCTIONAL,The system shall provide an option to revert to the previous stable version of the app.,"852, 864, 901"
+67,FR068,FUNCTIONAL,The system shall ensure the search bar functions correctly and returns results without delays.,"888, 896, 903, 1525"
+68,FR069,FUNCTIONAL,The system shall allow users to edit previous posts.,"874, 1574"
+69,FR070,FUNCTIONAL,The system shall sync properly with Google services.,860
+70,FR071,FUNCTIONAL,The system shall resolve single sign-on (SSO) errors and provide clear troubleshooting steps.,870
+71,FR072,FUNCTIONAL,"The system shall ensure all basic features (e.g., loading pages, updating content, displaying notifications) function reliably without crashes or freezes.",915-980
+72,FR073,FUNCTIONAL,The system shall implement pre-release testing for updates to minimize post-update bugs and performance degradation.,"927, 938, 960, 973, 975"
+73,FR074,FUNCTIONAL,The system shall optimize compatibility with low-range Android devices to ensure stable performance.,"963, 964, 978"
+74,FR075,FUNCTIONAL,The system shall improve UI responsiveness for larger screens.,955
+75,FR076,FUNCTIONAL,The system shall provide real-time push notifications for messages and updates without requiring the Messenger app.,"990, 1004, 1053"
+76,FR077,FUNCTIONAL,The system shall include a dedicated messaging button on all user profile pages.,989
+77,FR078,FUNCTIONAL,The system shall allow users to read news feeds offline.,993
+78,FR079,FUNCTIONAL,The system shall ensure notifications are clickable and direct users to the correct content.,"1022, 1031, 1583, 1587, 1669, 1728, 1730"
+79,FR080,FUNCTIONAL,The system shall provide a manual refresh option for news feeds and notifications.,"1003, 1021, 1049"
+80,FR081,FUNCTIONAL,The system shall display all pending notifications upon app launch.,997
+81,FR082,FUNCTIONAL,The system shall include a report page button for abusive content.,1043
+82,FR083,FUNCTIONAL,The system shall allow users to upload photos from all supported Android devices.,1058-1167
+83,FR084,FUNCTIONAL,The system shall provide an option to select or create albums when uploading photos.,"1066, 1070, 1086, 1090, 1140, 1153"
+84,FR085,FUNCTIONAL,"The system shall display accurate and up-to-date birthday notifications, including ""Today"" birthdays.","1061, 1068, 1111"
+85,FR086,FUNCTIONAL,"The system shall allow users to share videos to external apps (e.g., WhatsApp).","1144, 1145, 1146"
+86,FR087,FUNCTIONAL,The system shall provide a reliable photo-sharing feature without blocking users after multiple shares.,1078
+87,FR088,FUNCTIONAL,The system shall enable users to organize photos into specific albums directly from the app.,"1070, 1076, 1086, 1090, 1140"
+88,FR089,FUNCTIONAL,The system shall allow users to upload multiple photos simultaneously.,1124
+89,FR090,FUNCTIONAL,The system shall ensure that uploaded photos appear correctly on the timeline without requiring re-uploads.,"1101, 1161"
+90,FR091,FUNCTIONAL,The system shall provide a clear method to clear failed upload notifications without restarting the device.,"1082, 1104"
+91,FR092,FUNCTIONAL,The system shall implement a connection retry mechanism when network errors occur.,"1169, 1182, 1186, 1222, 1233, 1263"
+92,FR093,FUNCTIONAL,The system shall provide an option to install and move the application to an SD card.,1267-1325
+93,FR094,FUNCTIONAL,"The system shall allow users to manage storage preferences, including clearing cached data and temporary files.","1273, 1301, 1311, 1325, 1590, 1639"
+94,FR095,FUNCTIONAL,The system shall allow users to post status updates successfully on the first attempt.,1326-1443
+95,FR096,FUNCTIONAL,The system shall allow users to check in to locations and tag places.,"1351, 1357, 1377, 1382, 1395, 1405, 1406, 1410"
+96,FR097,FUNCTIONAL,The system shall display the correct location when posting status updates.,"1339, 1351, 1418, 1419, 1438"
+97,FR098,FUNCTIONAL,The system shall allow users to copy and paste text from posts.,"1394, 1492"
+98,FR099,FUNCTIONAL,The system shall support voice messaging functionality.,"1384, 1422"
+99,FR100,FUNCTIONAL,The system shall provide a swipe-to-delete gesture for comments.,"1454, 1508, 1509"
+100,FR101,FUNCTIONAL,The system shall allow users to unfollow posts.,"1451, 1472"
+101,FR102,FUNCTIONAL,"The system shall retain comment text when a posting attempt fails, allowing users to retry without re-entering the text.","1474, 1495"
+102,FR103,FUNCTIONAL,"The system shall allow users to manage privacy settings for posts and photos, including selecting who can view them.","1480, 1481, 1482, 1485, 1513"
+103,FR104,FUNCTIONAL,The system shall allow users to remove tags from photos and posts.,1502
+104,FR105,FUNCTIONAL,The system shall allow users to poke friends.,"1469, 1494"
+105,FR106,FUNCTIONAL,The system shall provide a visible and accessible camera icon/button for changing the cover photo on the mobile app.,1516-1568
+106,FR107,FUNCTIONAL,The system shall enable password changes from the settings menu.,1537
+107,FR108,FUNCTIONAL,The system shall include a language selection setting.,1566
+108,FR109,FUNCTIONAL,The system shall allow users to disable the inbuilt Messenger feature if the standalone Messenger app is installed.,"1569, 1570"
+109,FR110,FUNCTIONAL,The system shall provide multi-tab support for improved navigation.,1663
+110,FR111,FUNCTIONAL,The system shall restore missing features present in the mobile web version.,"1674, 1680, 1742"
+111,FR112,FUNCTIONAL,"The system shall ensure chat functionality works reliably, including message delivery and inbox updates.","1720, 1722, 1723"
+112,FR113,FUNCTIONAL,The system shall allow users to cancel or uninstall the app without issues.,"1691, 1705, 1707"
+113,NFR001,NON_FUNCTIONAL,The system shall maintain a crash rate of <0.1% per user session.,"1, 3, 6, 9, 13, 15, 19, 20, 44, 46, 48, 60, 61, 64, 66, 71, 74, 80, 84, 85, 96, 98, 453, 456, 465, 487, 495, 496, 500, 543, 669, 683, 706, 711, 715, 718, 724, 732, 733, 745, 752, 1575, 1586, 1600, 1610, 1631, 1645"
+114,NFR002,NON_FUNCTIONAL,"The system shall respond to user interactions (e.g., clicks, scrolls) within 1 second.","11, 30, 35, 41, 72, 102"
+115,NFR003,NON_FUNCTIONAL,The system shall prevent freezing during normal use (defined as <1 freeze per 100 user actions).,"2, 10, 16, 17, 22, 23, 24, 26, 32, 34, 38, 39, 42, 45, 49, 50, 52, 55, 56, 68, 69, 73, 77, 79, 81, 86, 89, 90, 92, 93, 95, 97, 99, 100, 103, 104, 105"
+116,NFR004,NON_FUNCTIONAL,The system shall load all pages (including photos and search results) within 2 seconds under normal network conditions.,"21, 27, 28, 29, 57, 58, 75, 101, 107, 110, 114, 116, 123, 144, 168, 176, 178, 269, 280, 287, 288, 306, 314, 323, 330, 333, 354, 371, 375, 423, 425, 426, 463, 473, 490, 494, 509, 511, 534, 549, 559, 560, 569, 584, 588, 599, 610, 631, 652, 658, 664, 760, 771, 775, 789, 799, 816, 818, 819, 822, 834, 851, 881, 882, 915, 918, 922, 926, 931, 939, 940, 942, 943, 944, 946, 947, 948, 949, 957, 959, 960, 969, 972, 973, 975, 984, 987, 988, 992, 1015, 1017, 1024, 1036, 1040, 1046, 1051, 1168, 1171, 1174, 1175, 1184, 1188, 1199, 1200, 1203, 1208, 1211, 1212, 1213, 1231, 1232, 1234, 1238, 1240, 1248, 1254, 1256, 1259, 1269, 1271, 1291, 1320, 1345, 1361, 1368, 1411, 1432, 1444, 1488, 1506, 1571, 1572, 1601, 1621, 1685, 1686, 1709, 1711, 1712, 1726, 1727"
+117,NFR005,NON_FUNCTIONAL,The system shall refresh content without unintended full-page reloads.,"4, 42, 107, 190, 200, 204, 207, 244, 251"
+118,NFR006,NON_FUNCTIONAL,The system shall not disrupt cellular data connectivity during or after crashes.,54
+119,NFR007,NON_FUNCTIONAL,The system shall consume <10% of device memory during active use.,"15, 18, 47, 53, 1266, 1269, 1270, 1271, 1274, 1275, 1288, 1291, 1292, 1294, 1307, 1308, 1309, 1310, 1321, 1629, 1630, 1662"
+120,NFR008,NON_FUNCTIONAL,The system shall support Android 4.1+ without device-specific crashes.,"13, 22, 62, 99, 259, 296, 348, 1058, 1060, 1074, 1096, 1128, 1355, 1376, 1384, 1387, 1413, 1439, 1586, 1595, 1633, 1700, 1708, 1734"
+121,NFR009,NON_FUNCTIONAL,"The system shall prevent force closes during normal operation (e.g., scrolling, opening pictures, or writing comments) with a 99% success rate.","185, 188, 189, 194, 205, 218, 219, 221, 231, 235, 240, 247, 248, 769, 775, 789, 812, 813, 816, 822, 828, 1083, 1104, 1107, 1488, 1506, 1507, 1546, 1554, 1556, 1578, 1608, 1620, 1641"
+122,NFR010,NON_FUNCTIONAL,The system shall load pictures and comments within 3 seconds under normal network conditions.,"110, 114, 116, 123, 144, 168, 176, 178, 180, 206, 220, 234, 239, 250"
+123,NFR011,NON_FUNCTIONAL,The system shall refresh the newsfeed and display updates in chronological order.,"116, 123, 177"
+124,NFR012,NON_FUNCTIONAL,The system shall provide consistent push notifications for new messages.,"146, 506, 990, 1004, 1053, 1598, 1643"
+125,NFR013,NON_FUNCTIONAL,The system shall upload videos within 60 seconds for files up to 100MB.,"140, 487, 548"
+126,NFR014,NON_FUNCTIONAL,The system shall handle background processes efficiently to minimize battery drain.,"127, 147, 668, 702, 707, 739, 746, 753, 1241, 1686, 1709, 1714, 1726"
+127,NFR015,NON_FUNCTIONAL,The system shall initialize and open within 5 seconds on devices with ≥2GB RAM.,"109, 172"
+128,NFR016,NON_FUNCTIONAL,The system shall load images in the news feed within 2 seconds under normal network conditions (2Mbps+).,181-257
+129,NFR017,NON_FUNCTIONAL,The system shall not freeze or crash during image loading or general navigation.,"185, 188, 189, 194, 205, 218, 219, 221, 231, 235, 240, 247, 248"
+130,NFR018,NON_FUNCTIONAL,The system shall minimize the display of ads and sponsored posts to no more than 20% of the news feed content.,"208, 230, 761, 765, 831"
+131,NFR019,NON_FUNCTIONAL,"The system shall ensure images are displayed in a consistent and visually appealing format (no empty spaces, distorted sizes).","211, 252"
+132,NFR020,NON_FUNCTIONAL,"The system shall maintain a success rate of 99% for loading all core features (news feed, images, comments) under stable network conditions.",179-258
+133,NFR021,NON_FUNCTIONAL,The system shall maintain a network connection stability rate of ≥99.5% under stable external network conditions.,"460, 507, 522, 530, 533, 569, 573, 1587, 1603, 1607, 1640"
+134,NFR022,NON_FUNCTIONAL,"The system shall minimize false ""Network Error"" prompts (target: ≤1 false error per 100 user sessions).",259-361
+135,NFR023,NON_FUNCTIONAL,"The system shall function identically across all supported Android devices (e.g., Samsung Galaxy S3, Note 10.1) and OS versions (e.g., Jelly Bean).","259, 296, 348"
+136,NFR024,NON_FUNCTIONAL,"The system shall log and categorize network errors for debugging, with a resolution target of 90% within 48 hours of detection.","265, 294, 307, 308, 337, 340, 350"
+137,NFR025,NON_FUNCTIONAL,The system shall display photos in the news feed with a success rate of 99.9%.,362-451
+138,NFR026,NON_FUNCTIONAL,The system shall maintain zoom level when rotating the device from portrait to landscape mode while viewing a photo.,398
+139,NFR027,NON_FUNCTIONAL,"The system shall provide a clear error message when a photo cannot be retrieved, instead of displaying a blank or grey image.","382, 383, 389, 440, 761, 774, 777, 797, 803, 805, 816, 820, 845"
+140,NFR028,NON_FUNCTIONAL,The system shall load and display photos in the news feed within 2 seconds.,"371, 375, 423, 425, 426"
+141,NFR029,NON_FUNCTIONAL,The system shall successfully load images with a failure rate of <1% (excluding network-related issues).,"761, 762, 767, 774, 777, 780, 782, 783, 784, 790, 791, 792, 793, 795, 796, 797, 803, 807, 812, 813, 815, 817, 820, 824, 825, 828, 830, 831, 835, 836, 839, 843, 845"
+142,NFR030,NON_FUNCTIONAL,"The system shall display meaningful error messages when images fail to load (e.g., ""Cannot retrieve image, please check your connection"").","761, 774, 777, 797, 803, 805, 816, 820, 845"
+143,NFR031,NON_FUNCTIONAL,The system shall minimize intrusive ads to prevent interference with image loading and user experience.,"761, 765, 831"
+144,NFR032,NON_FUNCTIONAL,The system shall maintain a crash rate of <0.1% during normal usage.,"453, 456, 465, 487, 495, 496, 500, 543"
+145,NFR033,NON_FUNCTIONAL,"The system shall provide feature parity with the web version for core functions (e.g., posting, messaging, events).","473, 516, 1674, 1680, 1742"
+146,NFR034,NON_FUNCTIONAL,The system shall maintain network connectivity with <1% failure rate on stable connections.,"460, 507, 522, 530, 533"
+147,NFR035,NON_FUNCTIONAL,"The system shall minimize intrusive prompts (e.g., ""Find Friends"") to once per installation unless manually reactivated.","467, 479, 488, 519, 535, 536, 539, 541, 544, 547"
+148,NFR036,NON_FUNCTIONAL,The system shall sync contact photos in high quality within 1 minute of changes.,"455, 465, 468"
+149,NFR037,NON_FUNCTIONAL,The system shall fully terminate all processes upon logout to prevent residual memory usage.,523
+150,NFR038,NON_FUNCTIONAL,The system shall ensure notifications function correctly with a delivery success rate of 99%.,506
+151,NFR039,NON_FUNCTIONAL,"The system shall provide clear error messages for failed actions (e.g., uploads, sync) with actionable steps.","508, 534, 1182, 1186, 1222, 1233, 1251, 1263, 1333, 1342, 1348, 1365, 1399, 1416, 1420, 1421"
+152,NFR040,NON_FUNCTIONAL,The system shall maintain session stability with no unplanned logouts for 99.5% of users over a 24-hour period.,"565, 569, 577"
+153,NFR041,NON_FUNCTIONAL,The system shall display all pages and features without blank screens or missing options.,"556, 576"
+154,NFR042,NON_FUNCTIONAL,The system shall handle check-ins without freezing or errors for 99% of attempts.,"562, 566"
+155,NFR043,NON_FUNCTIONAL,"The system shall install/update successfully for 99.9% of users without ""invalid package"" or ""error 503"" messages.","557, 564, 574, 857, 866, 869, 871, 878, 890"
+156,NFR044,NON_FUNCTIONAL,"The system shall maintain stable network connectivity, with no more than 0.1% disconnection rate during active use.","569, 573"
+157,NFR045,NON_FUNCTIONAL,The system shall prevent unintended scrolling or refreshing while users are typing comments or viewing posts.,"582, 632, 636, 639, 644"
+158,NFR046,NON_FUNCTIONAL,"The system shall successfully process and persist status updates, comments, and likes with a 99% success rate.","587, 594, 600, 601, 605, 607, 608, 609, 612, 616, 621, 624, 634, 637, 645, 646, 647, 650, 654, 656, 662"
+159,NFR047,NON_FUNCTIONAL,"The system shall ensure the ""Like"" button registers user taps within 1 attempt in 95% of cases.","618, 641, 642"
+160,NFR048,NON_FUNCTIONAL,The system shall refresh the newsfeed without resetting the user's scroll position unexpectedly.,"596, 632, 636, 657"
+161,NFR049,NON_FUNCTIONAL,The system shall provide real-time updates for likes and comments on posts with less than 5 seconds of delay.,"603, 629, 659"
+162,NFR050,NON_FUNCTIONAL,The system shall consume ≤20% of CPU and ≤300MB RAM during typical usage.,"668, 694, 701, 707, 739, 745, 746, 753"
+163,NFR051,NON_FUNCTIONAL,"The system shall achieve interface responsiveness (e.g., taps, scrolls) with <100ms latency.","672, 688, 699, 708, 722, 724, 728"
+164,NFR052,NON_FUNCTIONAL,The system shall function reliably on mobile networks with latency ≤500ms.,"684, 700, 747"
+165,NFR053,NON_FUNCTIONAL,The system shall clear cached data automatically to prevent excessive storage growth.,746
+166,NFR054,NON_FUNCTIONAL,"The system shall load all user-specific pages (e.g., profile, settings) in under 2 seconds.",670-757
+167,NFR055,NON_FUNCTIONAL,The system shall load images in under 3 seconds under normal network conditions.,"760, 771, 775, 789, 799, 816, 818, 819, 822, 834"
+168,NFR056,NON_FUNCTIONAL,The system shall ensure the app refreshes content successfully with a 99% success rate.,"849, 854, 856, 867, 905, 909, 912"
+169,NFR057,NON_FUNCTIONAL,"The system shall provide clear error messages for installation failures (e.g., storage, signing issues).","857, 866, 869, 871, 878, 890"
+170,NFR058,NON_FUNCTIONAL,The system shall maintain login functionality after password changes without requiring reinstallation.,"875, 877, 883"
+171,NFR059,NON_FUNCTIONAL,The system shall minimize data usage during updates and background refreshes.,913
+172,NFR060,NON_FUNCTIONAL,"The system shall ensure app stability post-update, with no more than 1 crash per 1000 sessions.","850, 852, 855, 862, 865, 867, 872, 887, 898, 899, 906, 911"
+173,NFR061,NON_FUNCTIONAL,"The system shall allow updates to be downloaded and installed via device-specific stores (e.g., Samsung Galaxy Store).",893
+174,NFR062,NON_FUNCTIONAL,"The system shall maintain a **99% uptime** for core functionalities (loading posts, updates, notifications) with no forced closures.","924, 928, 933, 934, 940, 952, 962, 971, 976, 980"
+175,NFR063,NON_FUNCTIONAL,The system shall reduce SSL handshake errors during data retrieval to **<0.1% occurrence rate**.,942
+176,NFR064,NON_FUNCTIONAL,The system shall prioritize bug fixes for existing features over introducing new features until core stability is achieved.,"937, 941, 956, 965, 966"
+177,NFR065,NON_FUNCTIONAL,"The system shall support Android 4.2+ and non-standard ROMs (e.g., Rootbox) without installation failures.",978
+178,NFR066,NON_FUNCTIONAL,"The system shall ensure update processes (e.g., syncing notifications, refreshing feeds) complete within **5 seconds** on 4G networks.","918, 926, 939, 943, 944, 947, 949, 969, 972"
+179,NFR067,NON_FUNCTIONAL,The system shall incorporate user feedback from the rating section into biweekly bug-fix sprints.,"920, 941, 966"
+180,NFR068,NON_FUNCTIONAL,"The system shall reduce post-update performance degradation (e.g., slow loading, crashes) to **<5% user-reported incidents per release**.","938, 960, 973, 975, 979"
+181,NFR069,NON_FUNCTIONAL,The system shall provide clear error messages when network conditions are adequate but the app fails to load content.,"953, 962, 974"
+182,NFR070,NON_FUNCTIONAL,The system shall load notifications and messages within 30 seconds of receipt.,"982, 985, 1000, 1011, 1018, 1021, 1047"
+183,NFR071,NON_FUNCTIONAL,The system shall maintain notification and message synchronization with the server with no more than 1-minute delay.,"983, 986, 1005, 1008, 1009, 1010, 1014, 1018, 1026, 1028, 1030, 1037, 1041, 1045, 1050, 1052, 1055"
+184,NFR072,NON_FUNCTIONAL,"The system shall prevent freezing or endless loading states for feeds, notifications, and messages.","988, 992, 994, 995, 1006, 1016, 1020, 1023, 1033, 1035, 1048, 1056"
+185,NFR073,NON_FUNCTIONAL,The system shall minimize memory usage to under 20MB for background processes.,"1029, 1040, 1054"
+186,NFR074,NON_FUNCTIONAL,The system shall retain user notification settings without resetting.,1044
+187,NFR075,NON_FUNCTIONAL,The system shall ensure consistent feed update order based on user preferences.,"1013, 1032"
+188,NFR076,NON_FUNCTIONAL,The system shall successfully upload photos with a 99% success rate under normal network conditions.,"1059, 1065, 1071, 1077, 1080, 1081, 1089, 1091, 1094, 1100, 1105, 1113, 1119, 1125, 1131, 1135, 1149, 1167"
+189,NFR077,NON_FUNCTIONAL,"The system shall load photo thumbnails within 3 seconds, even for devices with large photo libraries.","1106, 1107"
+190,NFR078,NON_FUNCTIONAL,"The system shall ensure that photo upload failures provide actionable error messages (e.g., ""Upload failed: Retry?"").","1081, 1094, 1105, 1135"
+191,NFR079,NON_FUNCTIONAL,The system shall support photo and video uploads across all major Android device models and OS versions.,"1058, 1060, 1074, 1096, 1128"
+192,NFR080,NON_FUNCTIONAL,The system shall allow users to exit full-screen photo view with a single back-button press.,"1062, 1103"
+193,NFR081,NON_FUNCTIONAL,The system shall prevent app freezes during photo uploads or gallery browsing.,"1083, 1104, 1107"
+194,NFR082,NON_FUNCTIONAL,The system shall ensure that new photos and comments appear in the timeline without delays or omissions.,"1089, 1142, 1143, 1151"
+195,NFR083,NON_FUNCTIONAL,The system shall provide a consistent and intuitive interface for sharing media (photos/videos) to external apps.,"1144, 1145, 1146, 1148"
+196,NFR084,NON_FUNCTIONAL,"The system shall load all user-requested content (e.g., feed, messages, images) within 3 seconds on WiFi or 4G/LTE connections.","1168, 1171, 1174, 1175, 1184, 1188, 1199, 1200, 1203, 1208, 1211, 1212, 1213, 1231, 1232, 1234, 1238, 1240, 1248, 1254, 1256, 1259"
+197,NFR085,NON_FUNCTIONAL,"The system shall maintain basic functionality (e.g., text loading) on 2G connections with a maximum latency of 5 seconds per action.","1183, 1243, 1249, 1250"
+198,NFR086,NON_FUNCTIONAL,The system shall achieve a 99% success rate for content loading under stable network conditions (WiFi/4G).,"1170, 1172, 1178, 1180, 1189, 1190, 1191, 1195, 1197, 1204, 1209, 1215, 1216, 1219, 1228, 1235, 1239, 1244, 1247, 1261, 1262, 1265"
+199,NFR087,NON_FUNCTIONAL,"The system shall resolve WiFi-specific loading issues (e.g., authentication/timeout errors) for all major router configurations.","1181, 1202, 1205, 1220, 1246, 1264"
+200,NFR088,NON_FUNCTIONAL,The system shall reduce battery and data consumption during background updates by 30%.,1241

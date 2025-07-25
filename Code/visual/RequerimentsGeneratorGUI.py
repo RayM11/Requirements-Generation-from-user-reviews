@@ -97,24 +97,17 @@ class RequirementsGeneratorGUI:
             "UMAP"
         ]
 
-        self.embedding_models = [
-            "nomic-embed-text",
-            "sentence-transformers/all-MiniLM-L6-v2",
-            "sentence-transformers/all-mpnet-base-v2",
-            # Agregar más modelos aquí
-        ]
-
         self.llm_models = [
             "deepseek-ai/DeepSeek-V3-0324",
-            "gpt-3.5-turbo",
-            "gpt-4",
+            "meta-llama/Llama-3.1-8B-Instruct",
+            "mistralai/Magistral-Small-2506",
             # Agregar más modelos aquí
         ]
 
         self.llm_providers = [
             "fireworks-ai",
             "novita",
-            "",
+            "hf_inference",
             # Agregar más proveedores aquí
         ]
 

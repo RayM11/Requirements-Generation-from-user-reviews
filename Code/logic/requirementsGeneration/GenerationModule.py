@@ -383,19 +383,30 @@ if __name__ == "__main__":
     }
 
     reviews_df = pd.DataFrame(sample_data)
+    initial_reqs = pd.read_csv("initial_requirements.csv")
     app_description = "Task management application for development teams"
 
     try:
         # Initialize the module
         gen_module = GenerationModule()
 
-        # Generate requirements
-        initial_reqs, unified_reqs = gen_module.generate_requirements(
-            reviews_df=reviews_df,
-            app_description=app_description,
+        gen_module.llm_manager = LLMManager(
             model_name="deepseek-ai/DeepSeek-V3-0324",
-            provider="fireworks-ai"
+            provider="fireworks-ai",
+            test_connection=True
         )
+
+        # # Generate requirements
+        # initial_reqs, unified_reqs = gen_module.generate_requirements(
+        #     reviews_df=reviews_df,
+        #     app_description=app_description,
+        #     model_name="deepseek-ai/DeepSeek-V3-0324",
+        #     provider="fireworks-ai"
+        # )
+
+        unified_reqs = gen_module._unify_requirements(initial_reqs, app_description)
+
+        unified_reqs.to_csv("unified_requirements.csv")
 
         # Print summary
         gen_module.print_summary(initial_reqs, unified_reqs)

@@ -18,7 +18,7 @@ class LLMManager:
     DEFAULT_MODEL = "deepseek-ai/DeepSeek-V3-0324"
     DEFAULT_PROVIDER = "fireworks-ai"
     DEFAULT_GENERATION_PARAMS = {
-        "max_tokens": 3000,
+        "max_tokens": 10000,
         "temperature": 0.5,
         "top_p": 0.90,
         "stream": False

@@ -29,7 +29,7 @@ def metrics_average(metrics_list):
 
 def cross_validation_relevance(model_name, data_name, n_folds, config, mode="base"):
 
-    project_root = Path(__file__).resolve().parent.parent.parent
+    project_root = Path(__file__).resolve().parent.parent
     model_path = project_root / "models" / model_name
     data_path = project_root / "data" / "datasets" / data_name
 
@@ -73,7 +73,7 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
         results.append(metrics)
         print(f" {k+1}-Fold metrics: {metrics}")
 
-        save_path = project_root / "models" / "fine-tuned" / f"relevance_model {model_name}-{data_name}-K{k + 1}.pth"
+        save_path = project_root / "models" / "fine-tuned" / f"relevance_model {model_name}-{data_name} (Linear + RC)-K{k + 1}.pth"
         torch.save(relevance_model, save_path)
 
     print("Results :", results)
@@ -83,13 +83,13 @@ def cross_validation_relevance(model_name, data_name, n_folds, config, mode="bas
 if __name__ == '__main__':
     warnings.simplefilter(action="ignore", category=FutureWarning)
 
-    dataset = "swiftkey_labeled.csv"
+    dataset = "tapfish_labeled.csv"
     # model = "albert v2 - base"
     model = "BERTweet - base"
     # fine_tuned = "../models/fine-tuned/comment_relevance_detector (facebook).pth"
     n_folds = 5
 
-    project_root = Path(__file__).resolve().parent.parent.parent
+    project_root = Path(__file__).resolve().parent.parent
 
     config = {
         'model': project_root / "models" / model,
@@ -98,7 +98,7 @@ if __name__ == '__main__':
         'warmup': 0.2,
         'train_size': None,
         'weight_decay': 0.001,
-        'max_token_len': 130,
+        'max_token_len': 120,
         'n_epochs': 2,
 
         'FV_type': 'RELEVANT_COUNT',    # RELEVANT_COUNT or RELEVANT_POSITION
