@@ -70,11 +70,11 @@ The system orchestrates a robust and modular process divided into three core sta
 - **Classification**: BERTweet-base + RC knowledge vector achieved best results
 - **Clustering**: UMAP dimensionality reduction to 2 components showed optimal performance
 - **Generation**: LLM-generated requirements showed high consistency with source opinions
-- **Quality**: Over 50% of generated requirements met all evaluated quality properties
+- **Quality**: Over 50% of generated requirements met all evaluated quality properties (Structure, Classification, Correct, Unambiguous, Verifiable)
 
 ### Comparative Analysis
 
-- Outperformed existing state-of-the-art solutions in user opinion classification
+- Outperformed existing state-of-the-art solutions in user opinion classification (An average of 0.95 in F1-score for all datasets)
 - Demonstrated significant improvement with domain knowledge integration
 - Showed effective requirement consolidation through dual-LLM approach
 
